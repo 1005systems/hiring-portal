@@ -1,4 +1,4 @@
-# hiring.1005labs.com
+# 1005 Labs hiring puzzle (1005systems.github.io/hiring-portal)
 
 Static hiring page + fake ERP portal for the "Our agent found this job in 18 seconds. Can yours?" puzzle.
 

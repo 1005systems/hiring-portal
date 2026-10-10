@@ -1,10 +1,10 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Our agent found this job in 18 seconds. Can yours? — 1005 Intelligence Labs</title>
-<meta name="description" content="AI/ML + Data Engineer, 1 to 5 years, remote (India). No form, no résumé upload. Point any browser agent at a fake ERP and bring back the token.">
-<meta property="og:title" content="Our agent found this job in 18 seconds. Can yours?">
-<meta property="og:description" content="AI/ML + Data Engineer at 1005 Intelligence Labs. Point any browser agent at a fake ERP and bring back the apply token.">
-<meta property="og:image" content="https://hiring.1005labs.com/assets/og.png">
-<meta property="og:url" content="https://hiring.1005labs.com/">
+<title>We hid your job description in a database. Go get it. — 1005 Intelligence Labs</title>
+<meta name="description" content="AI/ML + Data Engineer, 1 to 5 years, remote (India). No form, no résumé upload. One read-only Postgres, four tables, one live posting. Bring back the claim token.">
+<meta property="og:title" content="We hid your job description in a database. Go get it.">
+<meta property="og:description" content="AI/ML + Data Engineer at 1005 Intelligence Labs. One read-only Postgres, four tables, one live posting. Its body is the JD and your claim token.">
+<meta property="og:image" content="https://1005systems.github.io/hiring-portal/assets/og.png">
+<meta property="og:url" content="https://1005systems.github.io/hiring-portal/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/dash.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,6 +41,8 @@ h1 span{color:var(--acc)}
 .bbar .dots i{display:inline-block;width:10px;height:10px;border-radius:50%;background:hsl(222 30% 20%);margin-right:6px}
 .bbar .url{flex:1;background:hsl(222 30% 12%);border-radius:6px;padding:5px 12px;color:hsl(216 22% 80%);text-align:center}
 .bbar .url b{color:#fff;font-weight:500}
+.browser pre.term{margin:0;padding:22px 24px;font-size:14px;line-height:1.7;color:hsl(216 22% 88%);white-space:pre-wrap;word-break:break-all}
+.browser pre.term #dburl{color:#7ee787;user-select:all}
 .browser video,.browser img{display:block;width:100%;height:auto;background:#eef0f3}
 .log{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:16px}
 @media(max-width:760px){.log{grid-template-columns:1fr}}
@@ -82,26 +84,31 @@ h1 span{color:var(--acc)}
   <div class="eyebrow mono">AI/ML + Data Engineer · <b>₹60K–2L / mo</b> · 1–5 yrs · Remote (India)</div>
  </header>
 
- <h1>Our agent found this job in 18 seconds. <span>Can yours?</span></h1>
- <p class="sub">No form. No résumé black hole. A fake ERP, one open posting, and a CAPTCHA that only lets bots through. Point any browser agent at it and bring back the token.</p>
- <a class="btn" href="#play">Start the run ↓</a>
+ <h1>We hid your job description in a database. <span>Go get it.</span></h1>
+ <p class="sub">No form. No résumé black hole. One read-only Postgres, four tables, one live posting for 1005 Labs. Its body is the JD and your claim token. Nobody said it was tidy.</p>
+ <a class="btn" href="#play">Connect ↓</a>
 
  <section class="stage" id="watch">
   <div class="agents">
-   <div class="ag" style="left:52px"><img src="assets/dash.svg" alt="" width="96" height="96"><div class="sh"></div><div class="bub mono">18 seconds. Beat that.</div></div>
+   <div class="ag" style="left:52px"><img src="assets/dash.svg" alt="" width="96" height="96"><div class="sh"></div><div class="bub mono">Four rows. One job.</div></div>
    <div class="ag hop" style="left:50%;margin-left:-48px"><img src="assets/vision.svg" alt="" width="96" height="96"><div class="sh"></div></div>
-   <div class="ag" style="right:64px"><img src="assets/flash.svg" alt="" width="96" height="96"><div class="sh"></div><div class="bub mono" style="left:-120px">I am not a human.</div></div>
+   <div class="ag" style="right:64px"><img src="assets/flash.svg" alt="" width="96" height="96"><div class="sh"></div><div class="bub mono" style="left:-120px">Read the comments.</div></div>
   </div>
   <div class="browser">
-   <div class="bbar mono"><span class="dots"><i></i><i></i><i></i></span><span class="url">dash · browser agent · <b>hiring.1005labs.com/erp</b></span><span>live</span></div>
-   <video autoplay muted loop playsinline poster="assets/dash-run.png" aria-label="Dash, a browser agent, logging into the ERP, finding the open posting and passing the reverse CAPTCHA">
-    <source src="assets/dash-run.mp4" type="video/mp4"><source src="assets/dash-run.webm" type="video/webm">
-   </video>
+   <div class="bbar mono"><span class="dots"><i></i><i></i><i></i></span><span class="url">candidate · psql · <b>read-only</b></span><span>postgres</span></div>
+   <pre class="term mono" id="conn">$ psql "<span id="dburl">postgresql://candidate.&lt;ref&gt;:findme@aws-0-ap-south-1.pooler.supabase.com:5432/postgres?sslmode=require</span>"
+erp=&gt; \dt erp.*
+  companies  postings  posting_versions  audit_log
+erp=&gt; SELECT id, title FROM erp.postings
+erp-&gt;  WHERE state = 'published' AND company ILIKE '%1005%';
+  (4 rows)                              -- four. we have one job.
+erp=&gt; \d+ erp.postings                    -- read the column comments.
+erp=&gt; -- it's in there. nobody said it was tidy.</pre>
   </div>
   <div class="log" id="play">
-   <div class="step"><div class="n mono">01 · THE PORTAL</div><p><code>hiring.1005labs.com/erp</code><br>user <code>candidate</code> · password <code>findme</code></p></div>
-   <div class="step"><div class="n mono">02 · THE RUN</div><p>Sign in. Find the one open posting. Prove you're a bot. Read the apply token.</p></div>
-   <div class="step"><div class="n mono">03 · THE PROOF</div><p>Email the token, your agent's trace, and one thing you'd change about the portal so agents have an easier time.</p></div>
+   <div class="step"><div class="n mono">01 · THE DATABASE</div><p>Schema <code>erp</code>, read-only, connection string above.<br>Table and column comments are part of the puzzle.</p></div>
+   <div class="step"><div class="n mono">02 · THE HUNT</div><p>Find the one posting that is live right now for 1005 Labs. Its body is the JD and a claim token. Ten minutes is the budget.</p></div>
+   <div class="step"><div class="n mono">03 · THE PROOF</div><p>Email with the token as subject: how you found it, what you rejected on the way and why, and the first thing you'd fix in this schema.</p></div>
   </div>
  </section>
 
@@ -113,20 +120,20 @@ h1 span{color:var(--acc)}
  </section>
 
  <section class="tools">
-  <h2>Any agent counts.</h2>
+  <h2>Any tool counts.</h2>
   <ul>
-   <li><b>Claude in Chrome</b> or Claude computer use</li>
-   <li><b>Playwright MCP</b> inside Claude Code, Cursor or Codex</li>
-   <li><b>Browser Use</b>, Stagehand, Skyvern, Operator-style tools</li>
-   <li><b>Your own script</b>: Playwright + an LLM loop, 40 lines</li>
+   <li><b>psql</b>, DBeaver, TablePlus, DataGrip</li>
+   <li><b>Claude Code, Cursor or Codex</b> with a Postgres MCP</li>
+   <li><b>A notebook</b>: psycopg + pandas, 20 lines</li>
+   <li><b>Your own agent</b>: give it the connection string and the question</li>
   </ul>
-  <p class="rule">Trace means whatever your tool produces: a transcript, a screenshot reel, a run log, or the script itself. We care what you noticed, not which tool you picked. Doing it by hand gets you the token and nothing else.</p>
+  <p class="rule">Agents are expected, not tolerated. If one did the work, send its transcript or the script. We care what you noticed and what you rejected, not which tool you picked. A right answer with no rejected rows is a weak answer.</p>
  </section>
 
  <footer class="ftr">
-  <div class="cta">Got the token? That was round one.<small>Next is one ~75-minute call: your current work in depth, a coding round, a short design case, AI depth questions.</small><a class="mail mono" href="mailto:krishnabala@1005labs.com?subject=Apply%20token%20%E2%80%94%20AI%2FML%20%2B%20Data%20Engineer">krishnabala@1005labs.com</a></div>
+  <div class="cta">Got the token? That was round one.<small>Next is one ~75-minute call: your current work in depth, a coding round, a short design case, AI depth questions.</small><a class="mail mono" href="mailto:krishnabala@1005labs.com?subject=ERP-XXXX-XXXX">krishnabala@1005labs.com</a></div>
   <div class="chips mono"><span class="chip acc">Founding team</span><span class="chip">₹60K–2L / month</span><a class="chip" href="https://1005labs.com">1005labs.com</a></div>
  </footer>
- <p class="fine">The ERP is a demo tenant with synthetic data: no real customers, invoices or people. The portal is read-only and client-side. Please don't attack it; there's nothing behind it. Dash, Vision and Flash are the agents we build at 1005 Labs.</p>
+ <p class="fine">The database is a throwaway project with synthetic data: no real customers, invoices or people. The role is SELECT-only on one schema. Nothing you can do will break it; nothing you break will help. Dash, Vision and Flash are the agents we build at 1005 Labs.</p>
 </div>
 </body></html>
