@@ -1,0 +1,36 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Job Postings — 1005 Logistics ERP</title><meta name="robots" content="noindex"><link rel="stylesheet" href="erp.css"></head>
+<body><div class="top" id="top"></div><div class="shell"><nav class="side" id="side"></nav><main class="main">
+<div class="crumb">Home › HR › Job Postings</div><h1>Job Postings</h1>
+<div class="bar">
+  <label class="muted" for="status">Status</label>
+  <select id="status"><option value="">All</option><option value="open">open</option><option value="closed">closed</option><option value="draft">draft</option><option value="on hold">on hold</option></select>
+  <span class="muted" id="count"></span>
+</div>
+<table id="tbl"><thead><tr><th>ID</th><th>Title</th><th>Department</th><th>Location</th><th>Status</th><th>Updated</th></tr></thead><tbody id="rows"></tbody></table>
+<div class="bar" style="margin-top:10px"><button class="sec" id="more">Load more</button><span class="muted" id="shown"></span></div>
+<p class="foot">Sorted by updated date, oldest first. Legacy v2 sort order, ticket IT-4471.</p>
+</main></div><script src="erp.js"></script><script src="_nav.js"></script>
+<script>
+(function(){
+  var PAGE=10, shown=0, filter='';
+  var rows=document.getElementById('rows'), more=document.getElementById('more');
+  function data(){ return ERP.postings.filter(function(p){ return !filter||p.status===filter; }); }
+  function render(reset){
+    if(reset){ rows.innerHTML=''; shown=0; }
+    var d=data(), slice=d.slice(shown, shown+PAGE);
+    slice.forEach(function(p){
+      var tr=document.createElement('tr');
+      tr.innerHTML='<td>'+p.id+'</td><td><a href="posting.html?id='+p.id+'">'+p.title+'</a></td><td>'+p.dept+'</td><td>'+p.location+'</td><td>'+ERP.badge(p.status)+'</td><td>'+p.updated+'</td>';
+      rows.appendChild(tr);
+    });
+    shown+=slice.length;
+    document.getElementById('count').textContent=d.length+' postings';
+    document.getElementById('shown').textContent='Showing '+shown+' of '+d.length;
+    more.disabled = shown>=d.length;
+  }
+  more.onclick=function(){ render(false); };
+  document.getElementById('status').onchange=function(e){ filter=e.target.value; render(true); };
+  render(true);
+})();
+</script></body></html>

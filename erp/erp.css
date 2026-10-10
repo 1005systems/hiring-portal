@@ -1,0 +1,50 @@
+/* 1005 Logistics ERP v3.2 — deliberately "enterprise". */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font:14px/1.45 -apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:#1f2937;background:#eef0f3}
+a{color:#1d4ed8;text-decoration:none}a:hover{text-decoration:underline}
+.top{height:46px;background:#1e3a5f;color:#fff;display:flex;align-items:center;padding:0 16px;gap:14px;font-size:13px}
+.top .logo{font-weight:700;letter-spacing:.02em}.top .logo small{font-weight:400;opacity:.7;margin-left:6px}
+.top .sp{flex:1}.top .u{opacity:.85}.top a{color:#fff;opacity:.85}
+.shell{display:flex;min-height:calc(100% - 46px)}
+.side{width:210px;background:#fff;border-right:1px solid #d7dbe0;padding:14px 0}
+.side h4{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#6b7280;padding:10px 16px 4px}
+.side a{display:block;padding:7px 16px;color:#1f2937;font-size:13.5px}
+.side a.on,.side a:hover{background:#e8eef7;color:#1e3a5f;text-decoration:none}
+.side a.sub{padding-left:30px;font-size:13px}
+.main{flex:1;padding:20px 24px;max-width:1100px}
+.crumb{font-size:12px;color:#6b7280;margin-bottom:10px}
+h1{font-size:20px;font-weight:600;margin-bottom:14px}
+h2{font-size:15px;font-weight:600;margin:18px 0 8px}
+.card{background:#fff;border:1px solid #d7dbe0;border-radius:4px;padding:16px;margin-bottom:16px}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.tile{background:#fff;border:1px solid #d7dbe0;border-radius:4px;padding:14px}
+.tile .k{font-size:11px;color:#6b7280;text-transform:uppercase;letter-spacing:.06em}.tile .v{font-size:22px;font-weight:600;margin-top:4px}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid #d7dbe0;font-size:13px}
+th,td{padding:8px 10px;border-bottom:1px solid #e5e7eb;text-align:left;vertical-align:top}
+th{background:#f3f4f6;font-weight:600;font-size:12px;color:#374151}
+tr:hover td{background:#f8fafc}
+.badge{display:inline-block;padding:1px 7px;border-radius:3px;font-size:11px;font-weight:600;border:1px solid}
+.b-open{color:#166534;background:#dcfce7;border-color:#86efac}
+.b-closed{color:#6b7280;background:#f3f4f6;border-color:#d1d5db}
+.b-draft{color:#92400e;background:#fef3c7;border-color:#fcd34d}
+.b-hold{color:#1e40af;background:#dbeafe;border-color:#93c5fd}
+.bar{display:flex;gap:10px;align-items:center;margin-bottom:10px}
+select,input[type=text],input[type=password]{font:inherit;padding:6px 8px;border:1px solid #c6ccd3;border-radius:3px;background:#fff}
+button,.btn{font:inherit;font-size:13px;padding:7px 14px;border:1px solid #1e3a5f;background:#1e3a5f;color:#fff;border-radius:3px;cursor:pointer}
+button.sec,.btn.sec{background:#fff;color:#1e3a5f}
+button:disabled{opacity:.5;cursor:default}
+.muted{color:#6b7280;font-size:12px}
+.foot{font-size:11px;color:#9ca3af;margin-top:30px}
+.login{max-width:380px;margin:80px auto;background:#fff;border:1px solid #d7dbe0;border-radius:4px;padding:24px}
+.login h1{font-size:18px}.login label{display:block;font-size:12px;color:#374151;margin:12px 0 4px}
+.login input{width:100%}.login button{width:100%;margin-top:16px}
+.err{color:#b91c1c;font-size:12px;margin-top:8px;min-height:16px}
+.kv{display:grid;grid-template-columns:160px 1fr;gap:6px 12px;font-size:13px}.kv b{color:#374151;font-weight:600}
+.jd h3{font-size:14px;margin:14px 0 6px}.jd ul{padding-left:18px}.jd li{margin:3px 0}
+.cap{border:1px dashed #94a3b8;background:#f8fafc;border-radius:4px;padding:14px;margin-top:16px}
+.cap .t{font-weight:600;font-size:13px}
+.cap label{display:flex;align-items:center;gap:8px;margin-top:10px;cursor:pointer;font-size:13.5px}
+.cap input[type=checkbox]{width:18px;height:18px}
+#token{font:600 16px/1.3 ui-monospace,Menlo,Consolas,monospace;color:#1e3a5f;letter-spacing:.04em;margin-top:10px;display:none}
+#verifying{display:none;font-size:12px;color:#6b7280;margin-top:8px}

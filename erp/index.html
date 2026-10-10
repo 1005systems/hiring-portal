@@ -1,0 +1,22 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1005 Logistics ERP — Sign in</title><meta name="robots" content="noindex"><link rel="stylesheet" href="erp.css"></head>
+<body>
+<div class="top"><span class="logo">1005 Logistics ERP <small>v3.2.1</small></span><span class="sp"></span><span class="u">Not signed in</span></div>
+<form class="login" id="login" autocomplete="off">
+  <h1>Sign in</h1>
+  <p class="muted">Demo tenant. Use the credentials from the posting.</p>
+  <label for="user">Username</label><input id="user" name="user" type="text" placeholder="username">
+  <label for="pass">Password</label><input id="pass" name="pass" type="password" placeholder="password">
+  <button type="submit" id="signin">Sign in</button>
+  <div class="err" id="err" role="alert"></div>
+  <p class="foot">© 1005 Logistics Pvt. Ltd. · All data in this tenant is synthetic.</p>
+</form>
+<script src="erp.js"></script>
+<script>
+document.getElementById('login').addEventListener('submit',function(e){
+  e.preventDefault();
+  var u=document.getElementById('user').value.trim(), p=document.getElementById('pass').value;
+  if(ERP.login(u,p)){ var n=new URLSearchParams(location.search).get('next'); location.href=(n&&/^[a-z]+\.html$/.test(n))?n:'app.html'; }
+  else document.getElementById('err').textContent='Invalid username or password.';
+});
+</script></body></html>
