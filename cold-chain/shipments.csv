@@ -1,0 +1,5 @@
+shipment_id,customer,cargo,origin,destination,depart_ist,arrive_ist,logger_id,limit_c
+SHP-251014-0417,Deccan Biologics Pvt Ltd,"Insulin glargine, 3,600 pens",Nagpur,Hyderabad,2025-10-14T07:10:00+05:30,2025-10-14T17:10:00+05:30,TL25-0141,8.0
+SHP-251014-0422,Sahyadri Vaccines,"MMR vaccine, 2,000 vials",Pune,Hyderabad,2025-10-14T06:40:00+05:30,2025-10-14T16:40:00+05:30,TL25-0147,8.0
+SHP-251014-0431,Deccan Biologics Pvt Ltd,"Erythropoietin, 900 syringes",Bengaluru,Hyderabad,2025-10-14T07:30:00+05:30,2025-10-14T17:30:00+05:30,TL25-0152,8.0
+SHP-251014-0436,Marina Clinical Supplies,"Insulin aspart, 4,800 pens",Hyderabad,Chennai,2025-10-14T07:00:00+05:30,2025-10-14T17:00:00+05:30,TL25-0158,8.0

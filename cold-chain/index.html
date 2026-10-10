@@ -1,0 +1,58 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The logger says fine. The insulin disagrees. — 1005 Intelligence Labs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#111;--mute:#666;--acc:#2b6cb0;--line:#e6e6e6}
+body{font-family:Geist,system-ui,sans-serif;color:var(--ink);max-width:760px;margin:0 auto;padding:40px 20px 80px;line-height:1.55}
+.mono{font-family:"JetBrains Mono",monospace}
+.eyebrow{color:var(--mute);font-size:13px;letter-spacing:.04em;text-transform:uppercase}
+h1{font-size:34px;line-height:1.15;margin:8px 0 16px}h1 span{color:var(--acc)}
+h2{font-size:18px;margin:36px 0 8px}
+p{margin:8px 0}li{margin:4px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}td,th{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+code{font-family:"JetBrains Mono",monospace;font-size:13px;background:#f4f4f4;padding:1px 5px;border-radius:4px}
+pre{background:#111;color:#eee;padding:14px 16px;border-radius:8px;overflow:auto;font-size:13px}
+.box{border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin:16px 0}
+.cta{background:#eef4fb;border-radius:10px;padding:16px 18px;margin-top:28px}
+a{color:var(--acc)}small{color:var(--mute)}
+</style></head><body>
+<div class="eyebrow">1005 Intelligence Labs · hiring puzzle 016 · AI/ML + Data Engineer</div>
+<h1>The logger says fine. <span>The insulin disagrees.</span></h1>
+<p>Four reefer trucks carried cold-chain pharma for our ERP customer yesterday. The temperature loggers in all four say nothing went above 8 °C. One customer is certain their cargo spoiled. They are right.</p>
+<p><b>Find the shipment that breached, when the cargo air first crossed 8.0 °C, and how hot it got.</b></p>
+
+<h2>Rules of the domain</h2>
+<ul>
+<li>Breach = cargo air at or above <b>8.0 °C for 10 or more continuous minutes</b>. Shorter excursions are logged as near-misses, not breaches.</li>
+<li>Exactly one of the four shipments breached.</li>
+<li>The loggers are not broken. They are doing exactly what the datasheet says.</li>
+</ul>
+
+<h2>The files</h2>
+<table>
+<tr><th>File</th><th>What it is</th></tr>
+<tr><td><a href="shipments.csv">shipments.csv</a></td><td>the four shipments: route, cargo, logger, limit</td></tr>
+<tr><td><a href="telemetry.csv">telemetry.csv</a></td><td>2,400 rows, one per minute per shipment: logger reading and ambient temperature along the route</td></tr>
+<tr><td><a href="stops.csv">stops.csv</a></td><td>every stop where the doors opened, with door-open and door-close times</td></tr>
+<tr><td><a href="loggers.csv">loggers.csv</a></td><td>fleet logger register: model, firmware, unit, mounting, calibration certificate</td></tr>
+<tr><td><a href="CAL-TL25-B07.csv">CAL-TL25-B07.csv</a></td><td>batch calibration certificate for the loggers</td></tr>
+<tr><td><a href="DATASHEET.md">DATASHEET.md</a></td><td>the logger datasheet</td></tr>
+</table>
+<p><small>Ambient temperatures are from the <a href="https://open-meteo.com/en/docs/historical-weather-api">Open-Meteo ERA5 archive</a> (CC BY 4.0) for the route cities, 14 Oct 2025. Everything else is synthetic.</small></p>
+<pre class="mono">BASE=https://1005systems.github.io/hiring-portal/cold-chain
+for f in shipments.csv telemetry.csv stops.csv loggers.csv CAL-TL25-B07.csv DATASHEET.md; do curl -sO $BASE/$f; done</pre>
+
+<h2>How to play</h2>
+<ul>
+<li>Any language, any tool, any agent. We expect you to use one; we want to see how you drove it.</li>
+<li>Five minutes is the budget. Over is fine, tell us how long.</li>
+<li>Nothing you do can break it. Files are static and read-only.</li>
+</ul>
+
+<h2>Part 2 (optional)</h2>
+<p>The customer's QA team wants one number for all four shipments together: total minutes the cargo air was at or above 8.0 °C.</p>
+
+<div class="cta"><b>Send</b> to <a class="mono" href="mailto:krishnabala@1005labs.com?subject=COLD%20SHP-xxxxxx-xxxx%20HH%3AMM%20xx.x">krishnabala@1005labs.com</a>, subject line <code>COLD &lt;shipment_id&gt; &lt;HH:MM IST&gt; &lt;peak °C&gt;</code>.<br>
+In the body: how you found it, what you rejected on the way and why, the model you used (a sentence and the one equation is enough), what you would change about these loggers, and your agent trace or prompts. The rejections are the interview.<br>
+<small>₹60K–2L / month · 1–5 yrs · remote (India) · founding team · <a href="../">back to the portal</a></small></div>
+</body></html>
